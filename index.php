@@ -12,7 +12,7 @@
       header("location:index.php");
     }
     
-    if($_GET){
+    if(isset($_GET['borrar'])){
       $objConexion = new db();
       $id = $_GET['borrar'];
       $sql = "DELETE FROM `task` WHERE `task`.`id` =".$id;
@@ -24,6 +24,7 @@
 
     if(isset($_POST['clear_session'])){      
       unset($_SESSION['message']);
+      header("location:index.php");
     }
     //Recuperamos los datos desde la base de datos
     $objConexion = new db();

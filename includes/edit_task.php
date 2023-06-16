@@ -15,7 +15,9 @@ if($_POST){
   $desc = $_POST['description'];
   $id = $_POST['postId'];  
   $sql = "UPDATE `task` SET `title` = '$title', `description` = '$desc' WHERE `task`.`id` =".$id;  
-  $result = $objConexion->ejecutar($sql);      
+  $result = $objConexion->ejecutar($sql);     
+  $_SESSION['message'] = 'Se actualizó la tarea correctamente';
+  $_SESSION['color'] = 'warning'; 
   header("location:../index.php");
 }
 
